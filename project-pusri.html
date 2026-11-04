@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Pekerjaan Sampingan Berbasis Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* tambahan: alur pekerjaan */
+    .pd-steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0 24px;}
+    .pd-steps li{position:relative; border-top:1px solid var(--line); padding:20px 0 0;}
+    .pd-steps li::before{content:""; position:absolute; top:-4px; left:0; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 10px var(--teal);}
+    .pd-steps b{display:block; font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:600; margin-bottom:6px;}
+    .pd-steps span{color:var(--text-muted); font-size:.9rem;}
+
+    /* tambahan: proyek sebelumnya / berikutnya */
+    .pd-next{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-top:56px; padding-top:28px; border-top:1px solid var(--line);}
+    .pd-next a{display:block;}
+    .pd-next small{display:block; color:var(--text-muted); font-size:.82rem; margin-bottom:4px;}
+    .pd-next strong{font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:600; transition:color .2s;}
+    .pd-next a:hover strong{color:var(--teal);}
+    .pd-next a:last-child{text-align:right;}
+  </style>
+</head>
+<body class="project-page">
+  <div class="field"></div>
+  <div class="grain"></div>
+
+  <div class="project-detail">
+    <h1>Sistem Pekerjaan Sampingan Berbasis Website</h1>
+    <p class="project-subtitle">Website berbasis Flutter dengan Firebase yang memungkinkan pengguna menjadi partner atau requester dalam pekerjaan sampingan.</p>
+
+    <section class="project-section">
+      <h2>Tentang Proyek</h2>
+      <p>Sistem pekerjaan sampingan untuk karyawan PT Pupuk Sriwidjaja (Pusri). Pengguna dapat menjadi partner (pekerja sampingan) atau requester (pembuat pekerjaan). Tugas yang diselesaikan partner dapat ditukarkan menjadi hadiah atau uang.</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Alur Pekerjaan</h2>
+      <ol class="pd-steps">
+        <li><b>Requester membuat pekerjaan</b><span>Pekerjaan sampingan ditulis dan dipublikasikan.</span></li>
+        <li><b>Partner mengerjakan</b><span>Partner memilih pekerjaan dan menyelesaikannya.</span></li>
+        <li><b>Hasil dicatat</b><span>Pekerjaan yang selesai tercatat sebagai hasil partner.</span></li>
+        <li><b>Penukaran</b><span>Hasil ditukar menjadi hadiah atau uang.</span></li>
+      </ol>
+    </section>
+
+    <section class="project-section">
+      <h2>Screenshot Aplikasi</h2>
+      <div class="gallery">
+        <div>
+          <img src="assets/Part1.png" alt="Halaman Partner" onclick="openImage(this.src)">
+          <p>Halaman Partner</p>
+        </div>
+        <div>
+          <img src="assets/Part2.png" alt="Halaman Partner Detail" onclick="openImage(this.src)">
+          <p>Halaman Partner Detail</p>
+        </div>
+        <div>
+          <img src="assets/Req1.png" alt="Halaman barang yang ditukar" onclick="openImage(this.src)">
+          <p>Halaman Barang yang Ditukar</p>
+        </div>
+        <div>
+          <img src="assets/Req2.png" alt="Halaman Requester Detail" onclick="openImage(this.src)">
+          <p>Halaman Requester Detail</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Teknologi yang Digunakan</h2>
+      <div class="tech-container">
+        <div class="tech-card">Flutter</div>
+        <div class="tech-card">Dart</div>
+        <div class="tech-card">Firebase</div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Fitur</h2>
+      <ul class="feature-list">
+        <li>Partner sebagai pekerja sampingan</li>
+        <li>Requester sebagai pembuat pekerjaan sampingan</li>
+        <li>Hasil pekerjaan dapat ditukar menjadi hadiah atau uang</li>
+      </ul>
+    </section>
+
+    <div class="button-group">
+      <button onclick="window.location.href='index.html#karya'">← Kembali ke Portfolio</button>
+    </div>
+    
+  </div>
+
+  <div id="lightbox" class="lightbox" onclick="if(event.target===this)closeImage()">
+    <span class="close-btn" onclick="closeImage()">&times;</span>
+    <img id="lightbox-img" alt="">
+  </div>
+
+  <script>
+    const t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    function openImage(src){
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeImage(){ document.getElementById('lightbox').style.display = 'none'; }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeImage(); });
+  </script>
+</body>
+</html>

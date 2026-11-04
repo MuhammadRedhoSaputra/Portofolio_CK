@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Klasifikasi MobileNetV2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-page">
+  <div class="field"></div>
+  <div class="grain"></div>
+
+  <div class="project-detail">
+    <h1>Model Klasifikasi MobileNetV2</h1>
+    <p class="project-subtitle">Pelatihan model klasifikasi penyakit daun cabai dengan CNN arsitektur MobileNetV2 di Google Colab.</p>
+
+    <section class="project-section">
+      <h2>Tentang Proyek</h2>
+      <p>Tahap awal proyek adalah membuat model klasifikasi citra dengan arsitektur MobileNetV2 yang dilatih menggunakan dataset gambar daun cabai dari berbagai jenis penyakit. Setelah model selesai dilatih, model dipakai dalam API Flask dan antarmuka Laravel agar pengguna dapat mengunggah gambar dan menerima hasil klasifikasi.</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Screenshot Aplikasi</h2>
+      <div class="gallery">
+        <div>
+          <img src="assets/awal.png" alt="Halaman Awal Colab" onclick="openImage(this.src)">
+          <p>Halaman Import Colab</p>
+        </div>
+        <div>
+          <img src="assets/model_mobilenet.png" alt="Model MobileNetV2" onclick="openImage(this.src)">
+          <p>Model MobileNetV2</p>
+        </div>
+        <div>
+          <img src="assets/epoch.png" alt="Pelatihan Epoch" onclick="openImage(this.src)">
+          <p>Pelatihan Epoch</p>
+        </div>
+        <div>
+          <img src="assets/Matrixs.png" alt="Confusion Matrix" onclick="openImage(this.src)">
+          <p>Confusion Matrix Evaluasi</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Teknologi yang Digunakan</h2>
+      <div class="tech-container">
+        <div class="tech-card">Python</div>
+        <div class="tech-card">MobileNetV2</div>
+        <div class="tech-card">CNN</div>
+        <div class="tech-card">Google Colab</div>
+        <div class="tech-card">Adam Optimizer</div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Fitur</h2>
+      <ul class="feature-list">
+        <li>Pelatihan model di Google Colab</li>
+        <li>CNN dengan arsitektur MobileNetV2</li>
+        <li>Proses pelatihan (epoch)</li>
+        <li>Evaluasi dengan confusion matrix</li>
+      </ul>
+    </section>
+
+    <div class="button-group">
+      <button onclick="window.location.href='index.html#karya'">← Kembali ke Portfolio</button>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox" onclick="if(event.target===this)closeImage()">
+    <span class="close-btn" onclick="closeImage()">&times;</span>
+    <img id="lightbox-img" alt="">
+  </div>
+
+  <script>
+    const t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    function openImage(src){
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeImage(){ document.getElementById('lightbox').style.display = 'none'; }
+  </script>
+</body>
+</html>
